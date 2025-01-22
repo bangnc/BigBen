@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BangKa/obj/Debug/net7.0/BangKa.AssemblyInfoInputs.cache
+/BangKa/obj/Debug/net7.0/BangKa.AssemblyInfo.cs
+/BangKa/.vs/BangKa/v17/DocumentLayout.json
+/BangKa/.vs/BangKa/v17/DocumentLayout.backup.json
+/BangKa/.vs/BangKa/v17/.suo
