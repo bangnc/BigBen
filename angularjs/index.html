@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Factory Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="callback.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="LoginController">
+    <h1>Login</h1>
+    <input ng-model="username" placeholder="Username" />
+    <input ng-model="password" placeholder="Password" type="text" />
+    <button ng-click="login()">Login</button>
+    <button ng-click="loadData()">LoadData</button>
+    <button ng-click="logout()">Logout</button>
+    <p>{{ message }}</p>
+</div>
+  <script src="app.js"></script>
+</body>
+</html>
+  
