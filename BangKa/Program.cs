@@ -1,6 +1,11 @@
 ﻿
+using BangKa.SignalR;
+using BangKaData.DBContext;
+using BangKaData.Repositories;
+using BangKaService.Interfaces;
+using BangKaService.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -61,7 +66,19 @@ namespace WebApplication1
                  });
 
             builder.Services.AddAuthorization();
+            builder.Services.AddSignalR();
+            // add service
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                                                        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+
+            builder.Services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = builder.Configuration.GetConnectionString("Redis");
+            });
+            //
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -76,8 +93,9 @@ namespace WebApplication1
             app.UseAuthentication();
             app.UseAuthorization();
 
-
+            app.MapHub<ChatHub>("/chatHub");
             app.MapControllers();
+
 
             app.Run();
         }

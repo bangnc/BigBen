@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "IsWO/rvL4DYuBf9VDftj2I8CLqjeCo1Ie9GmC9qqUhE=",
-  "Source": "BangKa",
-  "BasePath": "_content/BangKa",
+  "Hash": "tMT+FZwmpePvKM1HP9r4M5yPGaa1aRVXSCOuTO82rPo=",
+  "Source": "BangKaAPI",
+  "BasePath": "_content/BangKaAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

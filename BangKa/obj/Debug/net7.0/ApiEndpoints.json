@@ -36,6 +36,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MyService.API.Controllers.ProductsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyService.API.Controllers.ProductsController",
+    "Method": "Add",
+    "RelativePath": "api/Products",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "BangKaDomain.Entities.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BangKa.Controllers.AuthController",
     "Method": "GenerateToken",
     "RelativePath": "Auth/token",
