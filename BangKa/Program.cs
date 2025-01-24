@@ -1,5 +1,5 @@
 ﻿
-using BangKa.SignalR;
+using BangKaAPI.SignalR;
 using BangKaData.DBContext;
 using BangKaData.Repositories;
 using BangKaService.Interfaces;
@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace WebApplication1
+namespace BangKaAPI
 {
     public class Program
     {

@@ -2,7 +2,7 @@
 using BangKaDomain.Entities;
 using BangKaService.Interfaces;
 
-namespace MyService.API.Controllers
+namespace BangKaAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

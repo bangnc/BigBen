@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace BangKa.Controllers
+namespace BangKaAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]

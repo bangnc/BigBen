@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace BangKa
+namespace BangKaAPI
 {
     public class BasicAuthMiddleware
     {
