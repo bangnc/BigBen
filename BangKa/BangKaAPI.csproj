@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Data\BangKaData.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RabbitMQ\Send\" />
+  </ItemGroup>
+
 </Project>

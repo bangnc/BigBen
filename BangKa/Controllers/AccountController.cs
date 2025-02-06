@@ -48,10 +48,12 @@ namespace BangKaAPI.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("LoadData")]
         public IActionResult LoadData()
         {
+            var kaka = new Test();
+            kaka.CreatedTimeStamp = DateTime.Now;
             // Danh sách tài khoản mẫu
             var accounts = new List<Account>
         {
@@ -89,5 +91,32 @@ namespace BangKaAPI.Controllers
             Role = role;
             Password = password;
         }
+    }
+    partial class Test
+    {
+        DateTime _createdTimeStamp;
+        partial void Setting(ref DateTime value);
+        public virtual DateTime CreatedTimeStamp
+        {
+            get { return _createdTimeStamp; }
+            set
+            {
+                Setting(ref value);
+                _createdTimeStamp = DateTime.SpecifyKind(value, DateTimeKind.Utc); ;
+            }
+        }
+    }
+    partial class Test
+    {
+        partial void Setting(ref DateTime value)
+        {
+            Console.WriteLine("Debug vào đây! Giá trị trước khi chỉnh sửa: " + value);
+            // Ví dụ: Điều chỉnh giá trị để không nhỏ hơn ngày 01/01/2000
+            if (value < new DateTime(2000, 1, 1))
+            {
+                value = new DateTime(2000, 1, 1);
+            }
+        }
+
     }
 }
