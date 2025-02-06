@@ -1,0 +1,39 @@
+name: Build and Test .NET 7
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 7
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore BangKa/BangKa.sln  # Hoặc chỉ định file .csproj nếu không có .sln
+
+      - name: Build project
+        run: dotnet build BangKa/BangKa.sln --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test BangKa/BangKa.sln --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: '**/*.trx'
