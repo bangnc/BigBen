@@ -24,13 +24,13 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Restore dependencies
-        run: dotnet restore src/BangKa.sln  # Hoặc chỉ định file .csproj nếu không có .sln
+        run: dotnet restore src/BangKa/BangKa.sln  # Hoặc chỉ định file .csproj nếu không có .sln
 
       - name: Build project
-        run: dotnet build src/BangKa.sln --configuration Release --no-restore
+        run: dotnet build src/BangKa/BangKa.sln --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test src/MyProject.sln --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test src/BangKa/BangKa.sln --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
