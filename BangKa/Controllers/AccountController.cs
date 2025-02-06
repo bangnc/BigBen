@@ -78,7 +78,7 @@ namespace BangKaAPI.Controllers
         public string Role { get; set; }
 
         // Mật khẩu tài khoản (có thể mã hóa hoặc ẩn đi trong thực tế)
-        public string Password { get; set; }
+        public string Password { get; set; };
 
         // Constructor không tham số (optional)
         public Account() { }
