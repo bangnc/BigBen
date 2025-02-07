@@ -1,4 +1,4 @@
-name: Build and Test .NET 7
+name: Build and Deploy .NET 7 & AngularJS
 
 on:
   push:
@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+    name: Build & Test .NET 7
     runs-on: ubuntu-latest
 
     steps:
@@ -37,3 +38,32 @@ jobs:
         with:
           name: test-results
           path: '**/*.trx'
+
+  build-client:
+    name: Build & Deploy AngularJS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          cd client
+          npm install
+
+      - name: Build AngularJS
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./client/dist
