@@ -54,12 +54,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd client
+          cd angularjs
           npm install
 
       - name: Build AngularJS
         run: |
-          cd client
+          cd angularjs
           npm run build
 
       - name: Deploy to GitHub Pages
