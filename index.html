@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Factory Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@5.0.10/dist/browser/signalr.min.js"></script>
+  <script src="callback.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="LoginController">
+    <h1>Login</h1>
+    <input ng-model="username" placeholder="Username" />
+    <input ng-model="password" placeholder="Password" type="text" />
+    <button ng-click="login()">Login</button>
+    <button ng-click="loadData()">LoadData</button>
+    <button ng-click="logout()">Logout</button>
+    <p>{{ message }}</p>
+</div>
+<div ng-controller="ChatController">
+  <h2>Chat Room</h2>
+
+  <div>
+      <label for="user">Send To:</label>
+      <input type="text" id="user" ng-model="user" placeholder="Receiver Username" />
+  </div>
+
+  <div>
+      <label for="message">Message:</label>
+      <input type="text" id="message" ng-model="message" placeholder="Type your message" />
+      <button ng-click="sendMessage()">Send</button>
+  </div>
+
+  <div>
+      <h3>Messages</h3>
+      <ul>
+          <li ng-repeat="msg in messages">
+              <strong>{{msg.user}}:</strong> {{msg.message}}
+          </li>
+      </ul>
+  </div>
+</div>
+  <script src="app.js"></script>
+</body>
+</html>
+  
